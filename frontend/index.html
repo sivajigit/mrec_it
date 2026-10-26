@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster | Test Your Knowledge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo" onclick="showPage('home')">QuizMaster</a>
+
+        <nav>
+            <button onclick="showPage('home')">Home</button>
+            <button onclick="showPage('about')">About</button>
+            <button onclick="showPage('signin')">Sign In</button>
+            <button class="signup-btn" onclick="showPage('signup')">Sign Up</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <span class="tag">LEARN. PLAY. IMPROVE.</span>
+                <h1>Challenge Your Mind.<br>
+                    <span>Discover Your Potential.</span>
+                </h1>
+                <p>Test your knowledge, improve your skills, and
+                   have fun with interactive quizzes.</p>
+                <button class="primary-btn" onclick="startQuiz()">
+                    Start Quiz →
+                </button>
+            </div>
+
+            <div class="features">
+                <article class="feature-card">
+                    <h2>🧠</h2>
+                    <h3>Test Your Skills</h3>
+                    <p>Answer interesting questions and challenge yourself.</p>
+                </article>
+                <article class="feature-card">
+                    <h2>⚡</h2>
+                    <h3>Instant Results</h3>
+                    <p>Get your score immediately after the quiz.</p>
+                </article>
+                <article class="feature-card">
+                    <h2>🚀</h2>
+                    <h3>Keep Improving</h3>
+                    <p>Practice regularly and track your progress.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page content-page">
+            <h1>About QuizMaster</h1>
+            <p>QuizMaster is a simple learning platform designed
+               to make learning enjoyable through quizzes.</p>
+            <p>Explore questions, check your knowledge, and
+               challenge yourself to achieve a better score.</p>
+            <button class="primary-btn" onclick="startQuiz()">
+                Try a Quiz
+            </button>
+        </section>
+
+        <!-- Sign In Page -->
+        <section id="signin" class="page content-page">
+            <div class="form-card">
+                <h1>Welcome Back!</h1>
+                <p>Sign in to continue learning.</p>
+                <form onsubmit="signIn(event)">
+                    <label for="login-email">Email</label>
+                    <input id="login-email" type="email"
+                           placeholder="Enter your email" required>
+
+                    <label for="login-password">Password</label>
+                    <input id="login-password" type="password"
+                           placeholder="Enter your password" required>
+
+                    <button class="primary-btn full-btn" type="submit">
+                        Sign In
+                    </button>
+                </form>
+                <p>New here?
+                    <a href="#" onclick="showPage('signup')">Create an account</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Sign Up Page -->
+        <section id="signup" class="page content-page">
+            <div class="form-card">
+                <h1>Create Account</h1>
+                <p>Join QuizMaster and start learning.</p>
+                <form onsubmit="signUp(event)">
+                    <label for="signup-name">Full Name</label>
+                    <input id="signup-name" type="text"
+                           placeholder="Enter your name" required>
+
+                    <label for="signup-email">Email</label>
+                    <input id="signup-email" type="email"
+                           placeholder="Enter your email" required>
+
+                    <label for="signup-password">Password</label>
+                    <input id="signup-password" type="password"
+                           minlength="6" placeholder="Minimum 6 characters"
+                           required>
+
+                    <button class="primary-btn full-btn" type="submit">
+                        Sign Up
+                    </button>
+                </form>
+                <p>Already registered?
+                    <a href="#" onclick="showPage('signin')">Sign in</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Quiz Page -->
+        <section id="quiz" class="page content-page">
+            <div class="quiz-card">
+                <div class="quiz-top">
+                    <span id="question-count">Question 1 of 5</span>
+                    <span id="score-label">Score: 0</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <h2 id="question">Question appears here</h2>
+                <div id="options" class="options"></div>
+
+                <p id="feedback" aria-live="polite"></p>
+
+                <button id="next-btn" class="primary-btn full-btn"
+                        onclick="nextQuestion()" disabled>
+                    Next Question →
+                </button>
+            </div>
+        </section>
+
+        <!-- Results Page -->
+        <section id="result" class="page content-page">
+            <div class="result-card">
+                <h1>Quiz Completed! 🎉</h1>
+                <p>Your final score is</p>
+                <div id="final-score" class="final-score">0/5</div>
+                <p id="result-message"></p>
+                <button class="primary-btn" onclick="startQuiz()">
+                    Play Again
+                </button>
+                <button class="secondary-btn" onclick="showPage('home')">
+                    Back Home
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 QuizMaster. Learn something new every day.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
